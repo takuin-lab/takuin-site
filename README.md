@@ -16,19 +16,27 @@ this site is now. Old posts read as text-only going forward.
 
 ## Getting this live — one-time setup
 
-1. **Create a new GitHub repository** (empty, no README/gitignore needed).
-2. On the new repo's page, click **"uploading an existing file"** and drag
-   in *everything inside this folder* (not the folder itself — its
-   contents should sit at the repo's root). Commit directly to `main`.
-3. In the Cloudflare dashboard, open the **`lifebeyond`** Pages project →
-   **Settings** → connect it to this new GitHub repo (exact wording may
-   have changed since — if you don't see a "Connect to Git" option, tell
-   Claude and it'll pull the current steps). Build command: none. Build
-   output directory: `/` (the repo root).
+Cloudflare does not allow converting an existing direct-upload Pages
+project (like `lifebeyond`) into a Git-connected one. So this is a new
+project, then a domain move — not a settings change on the old one.
 
-After that one-time connection, every future update is: drag the updated
-folder into GitHub's upload page again, same as step 2. Cloudflare
-redeploys automatically.
+1. **GitHub — create the repo.** New repository (empty, no
+   README/gitignore). On its page, click **"uploading an existing file"**
+   and drag in *everything inside this folder* (not the folder itself —
+   contents should sit at the repo's root). Commit to `main`.
+2. **Cloudflare — create a new Pages project from that repo.** Workers &
+   Pages → Create application → Pages → Connect to Git → authorize/select
+   the new repo. Framework preset: None. Build command: leave blank.
+   Build output directory: `/`. Deploy. Check the `*.pages.dev` preview
+   URL it gives you before touching the domain.
+3. **Move the domain over.** On the *new* project's Custom domains tab,
+   add `takuin.com` and `www.takuin.com`. If Cloudflare says they're
+   already in use, remove them from the old `lifebeyond` project's Custom
+   domains tab first, then add them here.
+
+After that, every future update is: drag the changed files into GitHub's
+upload page again. Cloudflare redeploys the same project automatically —
+no more domain-moving needed once this is done once.
 
 ## Required before comments work: D1 database + Turnstile
 
