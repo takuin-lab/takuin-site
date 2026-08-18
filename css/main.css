@@ -1,0 +1,282 @@
+/* ==========================================================================
+   takuin.com — shared design system
+   Base authored by Takuin (main.css from the 2025-2026 relaunch).
+   Extended here with: archive-era post styles, archive listing, start-here
+   reading trails, and the comment system. Same variables, same fonts,
+   no new color introduced beyond what already existed.
+   ========================================================================== */
+
+:root {
+  --paper: #ffffff;
+  --ink: #171614;
+  --shadow: rgba(0,0,0,.18);
+  --rule: #1f1e1b;
+  --engrave: #9a9387;
+  --accent: #2b2a27;
+  --green: #295f3a;
+  --muted: #6b6659;
+  --line: #e4dfd3;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Framed layout (new-era "artifact" pieces) -------------------------- */
+.artifact {
+  box-sizing: border-box;
+  max-width: 860px;
+  margin: 3rem auto;
+  padding: 2.5rem 2.25rem 2.5rem;
+  background: var(--paper);
+  border: 10px double var(--engrave);
+  outline: 2px solid #d1cbc1;
+  box-shadow: 0 40px 70px var(--shadow), inset 0 0 4px rgba(0,0,0,.12);
+}
+
+/* ---- Typography ---------------------------------------------------------- */
+.smallcaps { font-family: "IM Fell English SC", serif; letter-spacing: .16em; }
+.serif { font-family: "Spectral", serif; }
+.script { font-family: "Great Vibes", cursive; }
+
+h1 {
+  margin: 1.8rem 0 0.3rem;
+  text-align: center;
+  font: 700 44px/1.12 "IM Fell English SC", serif;
+  letter-spacing: .06em;
+  color: var(--ink);
+  text-shadow: 0 1px 0 #fff, 0 1px 1px rgba(0,0,0,.12);
+}
+
+.subtitle {
+  text-align: center;
+  margin: .4rem 0 2.2rem;
+  font: 400 14px/1.1 "IM Fell English SC", serif;
+  letter-spacing: .25em;
+  color: var(--accent);
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.plaque {
+  border: 2px solid var(--rule);
+  padding: 1.15rem 1.25rem 1.35rem;
+  margin: 0 auto 1.8rem;
+  max-width: 700px;
+  text-align: center;
+  box-shadow: inset 0 0 0.5px rgba(0,0,0,.3), inset 0 1px 2px rgba(255,255,255,.4);
+}
+.plaque .cap { font: 400 13px "IM Fell English SC", serif; letter-spacing: .3em; }
+.plaque h2 { margin: .35rem 0 0; font: 400 48px/1.08 "Great Vibes", cursive; }
+
+.lede {
+  margin: 1.6rem auto 1.9rem;
+  max-width: 720px;
+  font: 400 19px/1.75 "Spectral", serif;
+}
+.lede .sc { font-variant: small-caps; letter-spacing: .06em; }
+
+.section { margin: 1.8rem auto; max-width: 740px; }
+.section .head {
+  text-align: center;
+  letter-spacing: .22em;
+  font: 400 15px/1.1 "IM Fell English SC", serif;
+  margin: .8rem 0 1rem;
+}
+.rule { border-top: 1px solid var(--rule); margin: .8rem 0 1.2rem; opacity: .9; }
+.section p { font: 400 18px/1.78 "Spectral", serif; margin: .7rem 0; }
+.section .green { color: var(--green); font-style: italic; }
+
+.strap {
+  margin: 2.2rem auto .2rem;
+  padding-top: .9rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  max-width: 740px;
+  color: #35332f;
+  font: 400 15px/1.5 "Spectral", serif;
+}
+
+a { color: inherit; text-decoration-thickness: .06em; text-underline-offset: .16em; }
+.muted { opacity: .9; }
+
+.quiet-enter {
+  font-family: "IM Fell English SC", serif;
+  font-size: 15px;
+  letter-spacing: .28em;
+  text-decoration: none;
+  color: var(--accent);
+  transition: opacity .25s ease;
+}
+.quiet-enter:hover { opacity: .6; }
+
+/* "green-titled" secret-door links, wherever they appear */
+a.green, a.green:link, a.green:visited,
+.toc-line .title a.green, .toc-line .title a.green:link, .toc-line .title a.green:visited {
+  color: var(--green) !important;
+  text-decoration: none !important;
+  font-style: italic;
+}
+a.green:hover, .toc-line .title a.green:hover {
+  text-decoration: underline dotted;
+  text-underline-offset: .15em;
+}
+.quiet-link { color: #5f7a56; text-decoration: none; transition: color .15s ease; }
+.quiet-link:hover { color: var(--green); }
+
+@media (max-width: 760px) {
+  .artifact { margin: 4.2rem 1rem; padding: 2.25rem 1.2rem 1.8rem; }
+  h1 { font-size: 34px; }
+  .plaque h2 { font-size: 38px; }
+  .lede { font-size: 18px; }
+}
+
+/* ==========================================================================
+   Archive-era pages (2006–2016 restored posts, old WP pages) — plain,
+   unframed, no double border. Same fonts/colors, quieter presentation to
+   match how the original site actually looked.
+   ========================================================================== */
+
+.plain {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 6rem;
+}
+
+.plain-header { margin-bottom: 2.5rem; }
+.plain-header .site-link {
+  font-family: "IM Fell English SC", serif;
+  font-size: 13px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.plain-header .site-link a { text-decoration: none; border-bottom: 1px solid var(--line); }
+
+.plain h1.title {
+  font: 700 32px/1.25 "IM Fell English SC", serif;
+  letter-spacing: .02em;
+  text-align: left;
+  margin: .5rem 0 .3rem;
+  text-shadow: none;
+}
+.plain .meta {
+  font-family: "Spectral", serif;
+  font-size: 14px;
+  color: var(--muted);
+}
+.plain .meta a { color: var(--muted); }
+
+.plain article { font: 400 19px/1.8 "Spectral", serif; margin-top: 2rem; }
+.plain article p { margin: 0 0 1.2em; }
+.plain article blockquote {
+  margin: 1.6em 0; padding-left: 18px;
+  border-left: 2px solid var(--green);
+  color: #3a372e; font-style: italic;
+}
+.plain article img { max-width: 100%; height: auto; }
+
+/* Archive listing */
+.archive-lede {
+  font-family: "IM Fell English SC", serif;
+  font-size: 13px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.year-group { margin: 2.4rem 0; }
+.year-label {
+  font-family: "IM Fell English SC", serif;
+  font-size: 20px;
+  letter-spacing: .1em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .3rem;
+  margin-bottom: .8rem;
+}
+.month-label {
+  font-family: "Spectral", serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--muted);
+  margin: 1rem 0 .3rem;
+}
+.arch-item {
+  display: flex; justify-content: space-between; gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--line);
+  text-decoration: none; color: var(--ink);
+  font: 400 17px/1.4 "Spectral", serif;
+}
+.arch-item .d { font-size: 13px; color: var(--muted); white-space: nowrap; padding-top: 3px; font-family: "IM Fell English SC", serif; letter-spacing: .05em; }
+.arch-item:hover .t { text-decoration: underline; }
+
+.gap-marker {
+  margin: 2rem 0;
+  padding: 1.1rem 1.3rem;
+  background: #faf8f3;
+  border-left: 2px solid var(--green);
+  font: 400 16px/1.6 "Spectral", serif;
+  font-style: italic;
+  color: #3a372e;
+}
+
+/* Start Here trails */
+.trail { padding: 1.4rem 0; border-bottom: 1px solid var(--line); }
+.trail h3 { margin: 0 0 .3rem; font: 700 21px/1.3 "IM Fell English SC", serif; letter-spacing: .02em; }
+.trail p { margin: 0 0 .5rem; font: 400 16px/1.5 "Spectral", serif; color: var(--muted); }
+.trail a.enter { font-family: "IM Fell English SC", serif; font-size: 13px; letter-spacing: .1em; }
+
+/* ==========================================================================
+   Comments
+   ========================================================================== */
+.comments { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+.comments h2 {
+  font: 400 20px "IM Fell English SC", serif;
+  letter-spacing: .08em;
+  margin-bottom: 1.2rem;
+}
+.comment { padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+.comment.is-reply { margin-left: 2rem; }
+.comment .who { font-family: "Spectral", serif; font-weight: 600; font-size: 15px; }
+.comment .who .badge {
+  font-family: "IM Fell English SC", serif;
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--green); border: 1px solid var(--green); border-radius: 20px;
+  padding: 1px 7px; margin-left: 6px;
+}
+.comment .when { font-family: "Spectral", serif; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.comment .body { font: 400 16px/1.6 "Spectral", serif; }
+
+.comment-form { margin-top: 1.8rem; }
+.comment-form textarea {
+  width: 100%; min-height: 100px;
+  font: 400 16px/1.5 "Spectral", serif;
+  border: 1px solid var(--line); background: #faf8f3;
+  padding: 12px; border-radius: 3px; resize: vertical; box-sizing: border-box;
+}
+.comment-form .row { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.comment-form input {
+  font: 400 14px "Spectral", serif;
+  border: 1px solid var(--line); background: #faf8f3;
+  padding: 8px 10px; border-radius: 3px; flex: 1; min-width: 160px; box-sizing: border-box;
+}
+.comment-form button {
+  margin-top: 12px;
+  font-family: "IM Fell English SC", serif;
+  letter-spacing: .1em;
+  font-size: 14px;
+  background: var(--ink); color: var(--paper);
+  border: none; padding: 10px 20px; border-radius: 3px; cursor: pointer;
+}
+.comment-form .form-note { font: 400 12px "Spectral", serif; color: var(--muted); margin-top: 8px; }
+/* honeypot field — hidden from real visitors, visible to bots that fill everything in */
+.hp-field { position: absolute; left: -9999px; top: -9999px; opacity: 0; height: 0; width: 0; }
