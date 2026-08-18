@@ -185,6 +185,27 @@ a.green:hover, .toc-line .title a.green:hover {
 }
 .plain article img { max-width: 100%; height: auto; }
 
+.plain .subtitle-line { font-style: italic; }
+.plain .filed-under { margin-top: 2.5rem; }
+
+.new-era-toc { margin: 1.6rem 0 1.4rem; }
+.new-era-toc .toc-group-heading {
+  font-family: "IM Fell English SC", serif;
+  font-size: 13px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 1.2rem 0 .4rem;
+}
+.new-era-toc .toc-group-heading:first-child { margin-top: 0; }
+.new-era-toc .toc-group-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font: 400 17px/1.6 "Spectral", serif;
+}
+.new-era-toc .toc-group-list li { margin: .2rem 0; }
+
 /* Archive listing */
 .archive-lede {
   font-family: "IM Fell English SC", serif;
